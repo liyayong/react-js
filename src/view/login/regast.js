@@ -10,12 +10,9 @@ class Regast extends Component {
           }
     }
     onFinish = (values) => {
-        console.log('Received values of form: ', values);
-        this.submit(values)
+        //调用父组件的方法，进行注册 
+        this.props.subZC(values)
     };
-    submit=(value)=>{
-        this.props.subZC(value)
-    }
     render() { 
         return ( 
             <Fragment>
@@ -31,19 +28,19 @@ class Regast extends Component {
                             initialValues={{ remember: true }}
                             onFinish={this.onFinish}
                             >
-                            <Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
-                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                            <Form.Item name="userName" rules={[{ required: true, message: '用户名不能为空!' }]}>
+                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="请输入用户名" />
                             </Form.Item>
-                            <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+                            <Form.Item name="passWord" rules={[{ required: true, message: '密码不能为空!' }]}>
                                 <Input
                                 prefix={<LockOutlined className="site-form-item-icon" />}
                                 type="password"
-                                placeholder="Password"
+                                placeholder="请输入密码"
                                 />
                             </Form.Item>
 
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" className="login-form-button" onClick={this.submit}>
+                                <Button type="primary" htmlType="submit" className="login-form-button">
                                     注册
                                 </Button>
                             </Form.Item>

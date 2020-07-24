@@ -21,8 +21,10 @@ class Login extends Component {
     zhuce=(value)=>{
         this.setState({
             formType:'login',
-            name:value.username,
-            password:value.password,
+            name:value.userName,
+            password:value.passWord,
+        },()=>{
+            
         })
     }
     // 登录

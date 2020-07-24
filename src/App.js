@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Switch, Route,hashHistory,Link, HashRouter} from 'react-router-dom'
+import {Switch, Route, HashRouter} from 'react-router-dom'
 // 引入组件
 // import Home from './view/home/home'
 import About from './view/about/about'
