@@ -1,0 +1,26 @@
+.content{
+    height: 100vh;
+    background-color: #cccccc;
+    width: 100%;
+}
+.login{
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    background-color: #ffffff;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding:  0 20px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+.input{
+    width: 60%;
+    margin: 15px 15px 15px 0;
+}
