@@ -20,22 +20,14 @@ class Login extends Component {
     // 注册
     zhuce=(value)=>{
         this.setState({
-            formType:'login',
-            name:value.userName,
-            password:value.passWord,
-        },()=>{
-            
+            formType:value,
         })
-    }
-    // 登录
-    submit=()=>{
-
     }
     render() { 
         return ( 
             <Fragment>
                 {
-                    this.state.formType==='login'?<Gologin switch={this.switch} submit={this.submit}></Gologin>:<Regast subZC={this.zhuce}></Regast>
+                    this.state.formType==='login'?<Gologin switch={this.switch} ></Gologin>:<Regast subZC={this.zhuce}></Regast>
                 }
                 
             </Fragment>

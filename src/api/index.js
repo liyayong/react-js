@@ -15,3 +15,10 @@ export function getSms(data){
         data
     })
 }
+export function register(data){
+    return server.request({
+        url:'/register/',
+        method:'post',
+        data
+    })
+}
