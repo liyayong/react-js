@@ -39,8 +39,14 @@ class Regast extends Component {
             username:value
         })
     }
+    codeChange=(e)=>{
+        let value = e.target.value
+        this.setState({
+            code:value
+        })
+    }
     render() { 
-        const {  username,code_disable } = this.state
+        const {  username,code_disable,code } = this.state
         const _this = this
         return ( 
             <Fragment>
@@ -86,7 +92,7 @@ class Regast extends Component {
                             <Form.Item name="code" rules={[{ required: true, message: '验证码!' }]}>
                                 <Row gutter={13}>
                                     <Col span={15}>
-                                    <Input value={this.state.code}  prefix={<AliwangwangOutlined className="site-form-item-icon" />} placeholder="请输入验证码" />
+                                    <Input value={code} onChange={this.codeChange}  prefix={<AliwangwangOutlined className="site-form-item-icon" />} placeholder="请输入验证码" />
                                     </Col>
                                     <Col span={8}>
                                     <Button onClick={this.getCode} disabled={code_disable}>获取验证码</Button>
