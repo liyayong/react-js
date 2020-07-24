@@ -1,7 +1,7 @@
 import React, { Component,Fragment } from 'react';
 import './login.css'
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined,AliwangwangOutlined } from '@ant-design/icons';
 import { login } from '../../api/index'
 class Regast extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ class Regast extends Component {
                             </Form.Item>
                             <Form.Item name='code' rules={[{ required: true, message: '验证码不能为空!' }]}>
                                 <Input
-                                prefix={<LockOutlined className="site-form-item-icon" />}
+                                prefix={<AliwangwangOutlined className="site-form-item-icon" />}
                                 type="text"
                                 placeholder="验证码"
                                 />

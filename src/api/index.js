@@ -8,3 +8,10 @@ export function login(data){
         data:data,  //请求为post时
     })
 }
+export function getSms(data){
+    return server.request({
+        url:'/getSms/',
+        method:'post',
+        data
+    })
+}
