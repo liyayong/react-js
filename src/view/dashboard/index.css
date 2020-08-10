@@ -1,0 +1,43 @@
+.contain{
+    height: 100vh;
+    width: 100vw;
+    background-color: #cccccc;
+    overflow: hidden;
+}
+.layout_header{
+    position: relative;
+    height: 75px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 3px 16px 0 rgba(0,0,0,.1)
+}
+.layout_content{
+   border: 30px solid #f7f7f7;
+   padding: 30px;
+    background-color: #ffffff;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 83px;
+}
+.logospan{
+    display: block;
+    width: 177px;
+    height: 47px;
+    line-height: 47px;
+    background-color: #1a2d3f;
+    color: #ffffff;
+}
+.headerFlex{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.leftBtn{
+    width: 75px;
+}
+.rightBtn{
+    width: 75px;
+    display: inline-block;
+}

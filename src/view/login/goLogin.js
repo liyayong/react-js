@@ -3,6 +3,8 @@ import './login.css'
 import { Form, Input, Button,Row,Col,message } from 'antd';
 import { UserOutlined, LockOutlined,AliwangwangOutlined } from '@ant-design/icons';
 import { login,getSms } from '../../api/index'
+//增加一个登录白名单  通过这个高阶组件包装后会返回出来一个 history ,通过props可以获取，进行页面跳转
+import { withRouter } from 'react-router-dom'
 class Regast extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +19,10 @@ class Regast extends Component {
         login(values).then(res=>{
             console.log(res,'res')
             message.success('登录成功')
+            //路由跳转
+            this.props.history.push('/dashBoard')
+            //存个假的个人信息和token
+            localStorage.setItem('info',{username:'小栗',token:'11223'})
         })
     };
     change=()=>{
@@ -81,7 +87,7 @@ class Regast extends Component {
                                 ]
                                 
                             }>
-                                <Input value={username} value={this.state.username} onChange={this.inputChange} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
+                                <Input value={username}  onChange={this.inputChange} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
                             </Form.Item>
                             <Form.Item name='passWord' rules={[{ required: true, message: '密码不能为空!' }]}>
                                 <Input
@@ -116,4 +122,4 @@ class Regast extends Component {
     }
 }
  
-export default Regast;
+export default withRouter(Regast);
