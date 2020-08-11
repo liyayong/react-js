@@ -1,9 +1,9 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
-//组件导入
-import DashBoard from '../view/dashboard/index'
-import User from '../view/department/list'
-import UserAdd from '../view/department/add'
+
+//导入自动化工程
+import allData from '../comtentJs/autoRouter'
+
 class ContentMaiin extends React.Component {
     constructor(props) {
       super(props);
@@ -12,9 +12,14 @@ class ContentMaiin extends React.Component {
     render() { 
       return ( 
               <Switch>
-                  <Route exact path='/'  component={DashBoard}></Route>
+                  {
+                      allData.map(item=>{
+                        return <Route exact key={item.path} path={item.path}  component={item.component}></Route>
+                      })
+                  }
+                  {/* <Route exact path='/'  component={DashBoard}></Route>
                   <Route exact path='/dashBoard/department/list'  component={User}></Route>
-                  <Route exact path='/dashBoard/department/add'  component={UserAdd}></Route>
+                  <Route exact path='/dashBoard/department/add'  component={UserAdd}></Route> */}
               </Switch>
        );
     }

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {message} from 'antd'
 
 const instance = axios.create({
     baseURL:process.env.REACT_APP_API,
@@ -8,7 +9,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function(config){
      // 在发送请求之前做些什么
-
+    config.headers['Token'] = localStorage.getItem('token')
+    config.headers['Username'] = localStorage.getItem('userName')
 
     return config;
 },function(error){
@@ -19,7 +21,14 @@ instance.interceptors.request.use(function(config){
 })
 
 instance.interceptors.response.use(function(response){
-    return response
+    const res = response.data
+    if(res.resCode==0){  //成功
+        return response
+    }else if(res.resCode==500){
+        message.info(res.message)
+       return Promise.reject(response)
+    }
+  
 },function(error){
     return Promise.reject(error)
 })

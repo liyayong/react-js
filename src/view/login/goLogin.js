@@ -12,7 +12,7 @@ class Regast extends Component {
             code_disable:true,
             username:'',
             code:"",
-            passWord:''
+            password:''
         }
     }
     onFinish = (values) => {
@@ -21,8 +21,9 @@ class Regast extends Component {
             message.success('登录成功')
             //路由跳转
             this.props.history.push('/dashBoard')
-            //存个假的个人信息和token
-            localStorage.setItem('info',{username:'小栗',token:'11223'})
+            //存个人信息和token
+            localStorage.setItem('token',res.data.data.token)
+            localStorage.setItem('userName',res.data.data.username)
         })
     };
     change=()=>{
@@ -52,7 +53,7 @@ class Regast extends Component {
         })
     }
     render() { 
-        const {  username,code_disable,code,passWord } = this.state
+        const {  username,code_disable,code,password } = this.state
         const _this = this
         return ( 
             <Fragment>
@@ -89,9 +90,9 @@ class Regast extends Component {
                             }>
                                 <Input value={username}  onChange={this.inputChange} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
                             </Form.Item>
-                            <Form.Item name='passWord' rules={[{ required: true, message: '密码不能为空!' }]}>
+                            <Form.Item name='password' rules={[{ required: true, message: '密码不能为空!' }]}>
                                 <Input
-                                value={passWord}
+                                value={password}
                                 prefix={<LockOutlined className="site-form-item-icon" />}
                                 type="password"
                                 placeholder="密码"
