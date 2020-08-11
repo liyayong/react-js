@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox,Radio, message  } from 'antd';
 import { addData } from '../../api/user'
 import { withRouter } from 'react-router-dom'
+import resolve from 'resolve';
 const layout = {
     labelCol: {
       span: 8,
@@ -32,7 +33,7 @@ class Dropdown extends Component {
         console.log(value)
         addData(value).then(res=>{
             message.success('添加成功')
-            console.log(res)
+            this.props.history.push('list')
         })
     }
     //提交失败的回调
@@ -76,6 +77,16 @@ class Dropdown extends Component {
                   required: true,
                   message: '请输入部门人数',
                 },
+                ({getFieldValue})=>({
+                    validator(rule,value){
+                        console.log(!value)
+                        if(value!==0&&getFieldValue('number')===value){
+                            return Promise.resolve()
+                        }else{
+                            return Promise.reject('部门人数不能为零')
+                        }
+                    }
+                })
               ]}
             >
              <Input placeholder="请输入部门人数" type='number' />
